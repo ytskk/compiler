@@ -1,0 +1,86 @@
+(
+    "unit",
+    (
+        "unit",
+        (
+            "unit",
+            (
+                "fun",
+                "Int",
+                "factorial",
+                ("decli", "Int", "n"),
+                (
+                    (
+                        (("decli", "Int", "i", 1), ("decli", "Int", "factorial", 1)),
+                        (
+                            "while",
+                            ("cond", "<=", ("id", "i"), ("id", "n")),
+                            (
+                                (
+                                    "assign",
+                                    "factorial",
+                                    ("binop", "*", ("id", "factorial"), ("id", "i")),
+                                ),
+                                ("assign", "i", ("binop", "+", ("id", "i"), 1)),
+                            ),
+                        ),
+                    ),
+                    ("ret", ("id", "factorial")),
+                ),
+            ),
+            (
+                "fun",
+                "Float",
+                "getEulerNumber",
+                ("decli", "Float", "precision"),
+                (
+                    (
+                        (
+                            (("decli", "Float", "result", 0), ("decli", "Int", "i", 0)),
+                            ("decli", "Float", "addMember", 1),
+                        ),
+                        (
+                            "while",
+                            ("cond", ">", ("id", "addMember"), ("id", "precision")),
+                            (
+                                (
+                                    (
+                                        "assign",
+                                        "addMember",
+                                        (
+                                            "binop",
+                                            "/",
+                                            1,
+                                            ("call", "factorial", ("id", "i")),
+                                        ),
+                                    ),
+                                    (
+                                        "assign",
+                                        "result",
+                                        (
+                                            "binop",
+                                            "+",
+                                            ("id", "result"),
+                                            ("id", "addMember"),
+                                        ),
+                                    ),
+                                ),
+                                ("assign", "i", ("binop", "+", ("id", "i"), 1)),
+                            ),
+                        ),
+                    ),
+                    ("ret", ("id", "result")),
+                ),
+            ),
+        ),
+        (
+            "fun",
+            "Int",
+            "main",
+            (
+                ("decli", "Float", "precision", 0.002),
+                ("call", "print", ("call", "getEulerNumber", ("id", "precision"))),
+            ),
+        ),
+    ),
+)

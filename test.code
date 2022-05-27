@@ -1,0 +1,20 @@
+Int counter(Int n) {
+	Int j = 0;
+	while (j < n) {
+		j = j + 1;
+		print(j);
+	}
+}
+
+Int main() {
+	Int i = 2;
+
+	while (i < 20) {
+
+		if (i < 12) {
+			counter(i);
+		}
+
+		i = i + 1;
+	}
+}

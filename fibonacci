@@ -1,0 +1,36 @@
+(
+    "unit",
+    (
+        "unit",
+        (
+            "fun",
+            "Int",
+            "fibonacci",
+            ("decli", "Int", "n"),
+            (
+                (
+                    ("if", ("cond", "==", ("id", "n"), 0), ("ret", 0)),
+                    ("if", ("cond", "==", ("id", "n"), 1), ("ret", 1)),
+                ),
+                (
+                    "ret",
+                    (
+                        "binop",
+                        "+",
+                        ("call", "fibonacci", ("binop", "-", ("id", "n"), 1)),
+                        ("call", "fibonacci", ("binop", "-", ("id", "n"), 2)),
+                    ),
+                ),
+            ),
+        ),
+        (
+            "fun",
+            "Int",
+            "main",
+            (
+                ("decli", "Int", "number", 1),
+                ("call", "print", ("call", "fibonacci", ("id", "number"))),
+            ),
+        ),
+    ),
+)
